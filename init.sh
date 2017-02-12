@@ -8,10 +8,11 @@ else
 fi
 mkdir -p slides/${DIR_NAME}
 cp -pr reveal.js slides/${DIR_NAME}
+cp -pr revealjs.template slides/${DIR_NAME}
 
 cat << EOF > slides/${DIR_NAME}/convert.sh
 #!/bin/bash
-pandoc -s -t revealjs --template=revealjs.custom -V theme:blood -V  transition:page --slide-level=2 slide.md -o slide.html
+pandoc -s -t revealjs --template=revealjs.template -V theme:blood -V  transition:page --slide-level=2 slide.md -o slide.html
 EOF
 chmod 755 slides/${DIR_NAME}/convert.sh
 
